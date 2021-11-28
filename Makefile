@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
+#    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2021/11/19 19:39:25 by msousa           ###   ########.fr        #
+#    Updated: 2021/11/28 18:19:40 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RM			= rm -f
 INC			= -Iincludes -Ilibft
 UNAME 	:= ${shell uname}
 OBJ			= ${SRC:.c=.o}
-SRC			= push_swap.c
+SRC			= push_swap.c srcs/stack.c
 
 NAME		= push_swap
 
