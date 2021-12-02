@@ -6,11 +6,11 @@
 #    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2021/11/28 18:19:40 by msousa           ###   ########.fr        #
+#    Updated: 2021/12/02 23:28:48 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 LINKS		= -Llibft -lft
 CC			= gcc
 RM			= rm -f
@@ -47,8 +47,12 @@ leak:
 					--num-callers=20 --track-fds=yes ./${NAME}
 
 test:			${NAME}
-					ARG="4 67 3 87 23"; ./${NAME} $$ARG | wc -l
-					ARG="4 67 3 87 23"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
+					-./${NAME} 1 2 3 4
+					-./${NAME} 1 2 3 hh
+					-./${NAME} 1 2 3 2147483649
+					-./${NAME} 1 2 3 3
+# ARG="4 67 3 87 23"; ./${NAME} $$ARG | wc -l
+# ARG="4 67 3 87 23"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
 
 checker:	
 					@echo 'Hello World from $@!'

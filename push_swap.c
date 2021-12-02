@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/11/29 00:04:20 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/02 23:29:17 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,23 @@ long	ft_atol(const char *str)
 	return ((long)(number * sign));
 }
 
-void	ft_lstiter_if(t_list *lst, void (*f)(void *), void *data, int (*cmp)())
+void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)())
 {
-	while (lst)
+	t_list	*tmp;
+
+	tmp = list;
+	while (tmp)
 	{
-		if (!cmp(lst->content, data))
-			f(lst->content);
-		lst = lst->next;
+		if (!cmp(tmp->content, data))
+			f(list);
+		tmp = tmp->next;
 	}
 }
 
-static void	error(void *content)
+static void	error(t_list *list)
 {
-	(void)content;
+	if (list)
+		ft_lstclear(&list, free);
 	ft_putendl_fd("Error", STDERR);
 	exit(EXIT_FAILURE);
 }
@@ -66,35 +70,30 @@ void	print(void *content)
 
 t_bool	is_different(void *content, void *data)
 {
-	print(content);
-	print(data);
 	return (*(int *)content != *(int *)data);
 }
 
 static t_bool	valid(int argc, char *argv[], t_stack *stack)
 {
-	int	i;
 	long	tmp;
-	int	content;
+	int	*content;
 
-	i = 0;
 	if (!argc)
 		return (FALSE);
-	while (i < argc)
+	while (argc)
 	{
-		if (!ft_isnumber(argv[i]))
+		if (!ft_isnumber(argv[argc - 1]))
 			return (FALSE);
-		tmp = ft_atol(argv[i++]);
+		tmp = ft_atol(argv[argc-- - 1]);
 		if (tmp > INT_MAX)
 			return (FALSE);
-		content = (int)tmp;
-		printf("bf stack->head %d\n", content);
+		content = (int *)malloc(sizeof(*content));
+		if (!content)
+			return (FALSE);
+		*content = (int)tmp;
 		if (stack->head)
-		{
-			printf("stack->head %d %d\n", content, *(int *)(stack->head->content));
-			ft_lstiter_if(stack->head, error, &content, is_different);
-		}
-		stack_push(stack, &content);
+			ft_lstiter_if(stack->head, error, content, is_different);
+		stack_push(stack, content);
 	}
 	return (TRUE);
 }
@@ -107,12 +106,9 @@ int	main(int argc, char *argv[])
 	a = (t_stack) {.head = NULL, .size = 0};
 	// b = (t_stack) {.head = 0, .size = 0};
 	
-	// printf("%d\n", INT_MAX);
-	// printf("%ld\n", 2147483649);
-	// printf("%ld\n", ft_atol("2147483649"));
-	// printf("%d\n", ft_atoi("21474836409"));
 	if (!valid(argc - 1, &argv[1], &a))
-		error(0);
+		error(NULL);
+		
 	ft_lstiter(a.head, print);
 	printf("size: %d\n", a.size);
 	return (0);
