@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/02 23:29:17 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 11:19:39 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)())
 	while (tmp)
 	{
 		if (!cmp(tmp->content, data))
-			f(list);
+			f(list, tmp, data);
 		tmp = tmp->next;
 	}
 }
