@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:31:43 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:48:14 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	main(int argc, char *argv[])
 	ft_lstiter(b.head, print);
 	printf("\nb size: %d\n\n", b.size);
 
-	ra(&a, &b);
+	rr(&a, &b);
 	
 	ft_lstiter(a.head, print);
 	printf("\na size: %d\n\n", a.size);

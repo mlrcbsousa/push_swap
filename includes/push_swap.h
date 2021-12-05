@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:16:34 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 11:48:44 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:43:04 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)());
 // t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // Operations
+void	swap(t_stack *stack);
+void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
 void	sa(t_stack *a, t_stack *b);
 void	sb(t_stack *a, t_stack *b);
 void	ss(t_stack *a, t_stack *b);

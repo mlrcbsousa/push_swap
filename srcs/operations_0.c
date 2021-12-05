@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_1.c                                     :+:      :+:    :+:   */
+/*   operations_0.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:31:24 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:44:43 by msousa           ###   ########.fr       */
+/*   Created: 2021/12/05 12:39:45 by msousa            #+#    #+#             */
+/*   Updated: 2021/12/05 12:47:57 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a, t_stack *b)
+void	swap(t_stack *stack)
 {
-	(void)b;
-	swap(a);
+	void	*first;
+	void	*second;
+
+	if (stack->size < 2)
+		return ;
+	first = stack_pop(stack);
+	second = stack_pop(stack);
+	stack_push(stack, first);
+	stack_push(stack, second);
 }
 
-void	sb(t_stack *a, t_stack *b)
+void	rotate(t_stack *stack)
 {
-	(void)a;
-	swap(b);
+	void	*content;
+
+	content = stack_pop(stack);
+	if (!content)
+		return ;
+	ft_lstadd_back(&stack->head, ft_lstnew(content));
+	stack->size++;
 }
 
-void	ss(t_stack *a, t_stack *b)
-{
-	sa(a, b);
-	sb(a, b);
-}
+// void	reverse_rotate(t_stack *stack)
+// {
 
-void	pa(t_stack *a, t_stack *b)
-{
-	if (b->size)
-		stack_push(a, stack_pop(b));
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	pa(b, a);
-}
+// }
