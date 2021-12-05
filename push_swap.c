@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 11:19:39 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 11:24:14 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static t_bool	valid(int argc, char *argv[], t_stack *stack)
 		if (!ft_isnumber(argv[argc - 1]))
 			return (FALSE);
 		tmp = ft_atol(argv[argc-- - 1]);
-		if (tmp > INT_MAX)
+		if (tmp > INT_MAX || tmp < INT_MIN)
 			return (FALSE);
 		content = (int *)malloc(sizeof(*content));
 		if (!content)
