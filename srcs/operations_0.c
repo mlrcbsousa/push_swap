@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:39:45 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:47:57 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 19:33:13 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,26 @@ void	rotate(t_stack *stack)
 	void	*content;
 
 	content = stack_pop(stack);
-	if (!content)
-		return ;
-	ft_lstadd_back(&stack->head, ft_lstnew(content));
-	stack->size++;
+	if (content)
+		stack_shift(stack, content);
 }
 
-// void	reverse_rotate(t_stack *stack)
-// {
+void	reverse_rotate(t_stack *stack)
+{
+	void	*content;
 
-// }
+	content = stack_unshift(stack);
+	if (content)
+		stack_push(stack, content);
+}
+
+void	pa(t_stack *a, t_stack *b)
+{
+	if (b->size)
+		stack_push(a, stack_pop(b));
+}
+
+void	pb(t_stack *a, t_stack *b)
+{
+	pa(b, a);
+}

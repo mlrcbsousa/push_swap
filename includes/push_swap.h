@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:16:34 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:43:04 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 17:33:12 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	print(void *content);
 
 // Move to libft
 void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)());
+t_list	*ft_lstat(t_list *list, unsigned int nbr);
 
 // t_list	*ft_lstnew(void *content);
 // void	ft_lstadd_front(t_list **lst, t_list *new);

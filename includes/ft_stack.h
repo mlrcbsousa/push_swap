@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:27:46 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 11:58:28 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 16:58:47 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_stack
 }	t_stack;
 
 void	stack_push(t_stack *stack, void *content);
+void	stack_shift(t_stack *stack, void *content);
 void	*stack_pop(t_stack *stack);
+void	*stack_unshift(t_stack *stack);
 
 #endif

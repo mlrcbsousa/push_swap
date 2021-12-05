@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:48:14 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 19:32:52 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,42 @@ long	ft_atol(const char *str)
 	return ((long)(number * sign));
 }
 
-void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)())
-{
-	t_list	*tmp;
+// void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)())
+// {
+// 	t_list	*tmp;
 
-	tmp = list;
-	while (tmp)
+// 	tmp = list;
+// 	while (tmp)
+// 	{
+// 		if (!cmp(tmp->content, data))
+// 			f(list, tmp, data);
+// 		tmp = tmp->next;
+// 	}
+// }
+
+t_list	*ft_lstfind(t_list *list, void *data, int (*cmp)())
+{
+	while (list)
 	{
-		if (!cmp(tmp->content, data))
-			f(list, tmp, data);
-		tmp = tmp->next;
+		if (cmp(list->content, data))
+			break ;
+		list = list->next;
 	}
+	return (list);
+}
+
+t_list	*ft_lstat(t_list *list, unsigned int nbr)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i++ < nbr)
+	{
+		if (!list)
+			break ;
+		list = list->next;
+	}
+	return (list);
 }
 // LIBFT
 
@@ -67,9 +92,9 @@ void	print(void *content)
 	printf("%d, ", *(int *)content);
 }
 
-static t_bool	is_different(void *content, void *data)
+static t_bool	is_equal(void *content, void *data)
 {
-	return (*(int *)content != *(int *)data);
+	return (*(int *)content == *(int *)data);
 }
 
 static t_bool	valid(int argc, char *argv[], t_stack *stack)
@@ -90,8 +115,8 @@ static t_bool	valid(int argc, char *argv[], t_stack *stack)
 		if (!content)
 			return (FALSE);
 		*content = (int)tmp;
-		if (stack->head)
-			ft_lstiter_if(stack->head, error, content, is_different);
+		if (stack->head && ft_lstfind(stack->head, content, is_equal))
+			error(stack->head);
 		stack_push(stack, content);
 	}
 	return (TRUE);
@@ -108,16 +133,16 @@ int	main(int argc, char *argv[])
 	if (!valid(argc - 1, &argv[1], &a))
 		error(NULL);
 	
-	ft_lstiter(a.head, print);
-	printf("\na size: %d\n\n", a.size);
-	ft_lstiter(b.head, print);
-	printf("\nb size: %d\n\n", b.size);
+	// ft_lstiter(a.head, print);
+	// printf("\na size: %d\n\n", a.size);
+	// ft_lstiter(b.head, print);
+	// printf("\nb size: %d\n\n", b.size);
 
-	rr(&a, &b);
+	rra(&a, &b);
 	
-	ft_lstiter(a.head, print);
-	printf("\na size: %d\n\n", a.size);
-	ft_lstiter(b.head, print);
-	printf("\nb size: %d\n\n", b.size);
+	// ft_lstiter(a.head, print);
+	// printf("\na size: %d\n\n", a.size);
+	// ft_lstiter(b.head, print);
+	// printf("\nb size: %d\n\n", b.size);
 	return (0);
 }

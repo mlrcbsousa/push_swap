@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:03:12 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 19:28:52 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,34 @@ void	*stack_pop(t_stack *stack)
 	stack->head = head->next;
 	stack->size--;
 	free(head);
+	return (content);
+}
+
+void	stack_shift(t_stack *stack, void *content)
+{
+	t_list	*tail;
+
+	tail = ft_lstlast(stack->head);
+	tail->next = ft_lstnew(content);
+	stack->size++;
+}
+
+void	*stack_unshift(t_stack *stack)
+{
+	t_list	*last;
+	t_list	*before;
+	void	*content;
+	
+	if (!stack->head)
+		return (NULL);
+	last = ft_lstlast(stack->head);
+	content = last->content;
+	if (stack->size > 1)
+	{
+		before = ft_lstat(stack->head, stack->size - 2);
+		before->next = NULL;
+	}
+	stack->size--;
+	free(last);
 	return (content);
 }

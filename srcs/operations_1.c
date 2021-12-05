@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:31:24 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:44:43 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 19:33:17 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	sa(t_stack *a, t_stack *b)
 
 void	sb(t_stack *a, t_stack *b)
 {
-	(void)a;
-	swap(b);
+	sa(b, a);
 }
 
 void	ss(t_stack *a, t_stack *b)
@@ -30,13 +29,13 @@ void	ss(t_stack *a, t_stack *b)
 	sb(a, b);
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	ra(t_stack *a, t_stack *b)
 {
-	if (b->size)
-		stack_push(a, stack_pop(b));
+	(void)b;
+	rotate(a);
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	rb(t_stack *a, t_stack *b)
 {
-	pa(b, a);
+	ra(b, a);
 }
