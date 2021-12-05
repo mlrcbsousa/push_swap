@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:31:24 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:12:06 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:18:20 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,16 @@ void	ss(t_stack *a, t_stack *b)
 {
 	sa(a, b);
 	sb(a, b);
+}
+
+void	pa(t_stack *a, t_stack *b)
+{
+	if (b->size)
+		stack_push(a, stack_pop(b));
+}
+
+void	pb(t_stack *a, t_stack *b)
+{
+	if (a->size)
+		stack_push(b, stack_pop(a));
 }

@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 12:12:27 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:19:57 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,15 +109,15 @@ int	main(int argc, char *argv[])
 		error(NULL);
 	
 	ft_lstiter(a.head, print);
-	printf("a size: %d\n", a.size);
+	printf("\na size: %d\n\n", a.size);
 	ft_lstiter(b.head, print);
-	printf("b size: %d\n", b.size);
+	printf("\nb size: %d\n\n", b.size);
 
-	ss(&a, &b);
+	pb(&a, &b);
 	
 	ft_lstiter(a.head, print);
-	printf("a size: %d\n", a.size);
+	printf("\na size: %d\n\n", a.size);
 	ft_lstiter(b.head, print);
-	printf("b size: %d\n", b.size);
+	printf("\nb size: %d\n\n", b.size);
 	return (0);
 }
