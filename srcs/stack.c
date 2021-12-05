@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 11:58:04 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:03:12 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	*stack_pop(t_stack *stack)
 	content = head->content;
 	stack->head = head->next;
 	stack->size--;
-	ft_lstdelone(head, free);
+	free(head);
 	return (content);
 }
