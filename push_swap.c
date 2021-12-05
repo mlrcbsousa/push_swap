@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 11:49:35 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:06:29 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,10 @@ int	main(int argc, char *argv[])
 	if (!valid(argc - 1, &argv[1], &a))
 		error(NULL);
 		
-	// ft_lstiter(a.head, print);
-	// printf("size: %d\n", a.size);
+	ft_lstiter(a.head, print);
+	printf("size: %d\n", a.size);
 	sa(&a, &b);
-	// ft_lstiter(a.head, print);
+	ft_lstiter(a.head, print);
+	printf("size: %d\n", a.size);
 	return (0);
 }
