@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 11:58:04 by msousa           ###   ########.fr       */
+/*   Created: 2021/12/05 11:31:24 by msousa            #+#    #+#             */
+/*   Updated: 2021/12/05 11:50:12 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_push(t_stack *stack, void *content)
+void	sa(t_stack *a, t_stack *b)
 {
-	t_list	*head;
+	t_list	*first;
+	t_list	*second;
 
-	head = ft_lstnew(content);
-	head->next = stack->head;
-	stack->head = head;
-	stack->size++;
-}
+	(void)b;
+	if (a->size < 2)
+		return ;
+	first = stack_pop(a);
+	second = stack_pop(a);
 
-void	*stack_pop(t_stack *stack)
-{
-	t_list	*head;
-	void	*content;
+	printf("%d, %d\n", *(int *)first->content, *(int *)second->content);
+	ft_lstiter(a->head, print);
+	printf("size: %d\n", a->size);
 	
-	if (!stack->head)
-		return (NULL);
-	head = stack->head;
-	content = head->content;
-	stack->head = head->next;
-	stack->size--;
-	ft_lstdelone(head, free);
-	return (content);
+	stack_push(a, first);
+
+	ft_lstiter(a->head, print);
+	printf("size: %d\n", a->size);
+
+	stack_push(a, second);
 }

@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 11:24:14 by msousa           ###   ########.fr       */
+/*   Updated: 2021/12/05 11:49:35 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)())
 		tmp = tmp->next;
 	}
 }
+// LIBFT
 
 static void	error(t_list *list)
 {
@@ -61,14 +62,12 @@ static void	error(t_list *list)
 	exit(EXIT_FAILURE);
 }
 
-#include <stdio.h>
-
 void	print(void *content)
 {
-	printf("%d\n", *(int *)content);
+	printf("%d, ", *(int *)content);
 }
 
-t_bool	is_different(void *content, void *data)
+static t_bool	is_different(void *content, void *data)
 {
 	return (*(int *)content != *(int *)data);
 }
@@ -101,15 +100,17 @@ static t_bool	valid(int argc, char *argv[], t_stack *stack)
 int	main(int argc, char *argv[])
 {
 	t_stack	a;
-	// t_stack	b;
+	t_stack	b;
 
 	a = (t_stack) {.head = NULL, .size = 0};
-	// b = (t_stack) {.head = 0, .size = 0};
+	b = (t_stack) {.head = 0, .size = 0};
 	
 	if (!valid(argc - 1, &argv[1], &a))
 		error(NULL);
 		
-	ft_lstiter(a.head, print);
-	printf("size: %d\n", a.size);
+	// ft_lstiter(a.head, print);
+	// printf("size: %d\n", a.size);
+	sa(&a, &b);
+	// ft_lstiter(a.head, print);
 	return (0);
 }

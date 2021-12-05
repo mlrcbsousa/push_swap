@@ -6,7 +6,7 @@
 #    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2021/12/05 11:24:00 by msousa           ###   ########.fr        #
+#    Updated: 2021/12/05 11:31:05 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RM			= rm -f
 INC			= -Iincludes -Ilibft
 UNAME 	:= ${shell uname}
 OBJ			= ${SRC:.c=.o}
-SRC			= push_swap.c srcs/stack.c
+SRC			= push_swap.c srcs/stack.c srcs/operations.c
 
 NAME		= push_swap
 
