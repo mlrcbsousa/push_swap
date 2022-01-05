@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
+#    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2021/12/05 12:39:39 by msousa           ###   ########.fr        #
+#    Updated: 2022/01/05 20:46:40 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,16 +47,24 @@ leak:
 					valgrind --tool=memcheck --leak-check=yes --show-reachable=yes \
 					--num-callers=20 --track-fds=yes ./${NAME}
 
+# -./${NAME} 1 2 3
+# -./${NAME} 1 2
 test:			${NAME}
-					-./${NAME} 1 2 3 4
-					-./${NAME} 1 2 3 hh
-					-./${NAME} 1 2 3 2147483648
-					-./${NAME} 1 2 3 -2147483649
-					-./${NAME} 1 2 3 3
+					-./${NAME} 2 1
+# -./${NAME} 1 3 2
+# -./${NAME} 2 1 3
+# -./${NAME} 2 3 1
+# -./${NAME} 3 2 1
+# -./${NAME} 3 1 2
+# -./${NAME} 1 2 3 4
+# -./${NAME} 1 2 3 hh
+# -./${NAME} 1 2 3 2147483648
+# -./${NAME} 1 2 3 -2147483649
+# -./${NAME} 1 2 3 3
 # ARG="4 67 3 87 23"; ./${NAME} $$ARG | wc -l
 # ARG="4 67 3 87 23"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
 
-checker:	
+checker:
 					@echo 'Hello World from $@!'
 
 bonus:		checker

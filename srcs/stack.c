@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
+/*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 19:28:52 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/05 15:40:55 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*stack_pop(t_stack *stack)
 {
 	t_list	*head;
 	void	*content;
-	
+
 	if (!stack->head)
 		return (NULL);
 	head = stack->head;
@@ -51,7 +51,7 @@ void	*stack_unshift(t_stack *stack)
 	t_list	*last;
 	t_list	*before;
 	void	*content;
-	
+
 	if (!stack->head)
 		return (NULL);
 	last = ft_lstlast(stack->head);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
+/*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 19:32:52 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/05 21:33:23 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,51 @@ t_list	*ft_lstat(t_list *list, unsigned int nbr)
 	}
 	return (list);
 }
+
+void *ft_lstmin_int(t_list *list)
+{
+  void *min;
+
+  if (!list)
+    return (NULL);
+  min = list->content;
+  while (list)
+  {
+    if (*(int *)list->content < *(int *)min)
+      min = list->content;
+    list = list->next;
+  }
+  return (min);
+}
+
+void *ft_lstmax_int(t_list *list)
+{
+  void *max;
+
+  if (!list)
+    return (NULL);
+  max = list->content;
+  while (list)
+  {
+    if (*(int *)list->content > *(int *)max)
+      max = list->content;
+    list = list->next;
+  }
+  return (max);
+}
+
+t_bool is_lstsorted_int(t_list *list)
+{
+  if (!list)
+    return (FALSE);
+  while (list->next)
+  {
+    if (*(int *)list->content > *(int *)list->next->content)
+      return (FALSE);
+    list = list->next;
+  }
+  return (TRUE);
+}
 // LIBFT
 
 static void	error(t_list *list)
@@ -107,7 +152,10 @@ static t_bool	valid(int argc, char *argv[], t_stack *stack)
 	while (argc)
 	{
 		if (!ft_isnumber(argv[argc - 1]))
+    {
+      ft_putendl("here");
 			return (FALSE);
+    }
 		tmp = ft_atol(argv[argc-- - 1]);
 		if (tmp > INT_MAX || tmp < INT_MIN)
 			return (FALSE);
@@ -122,6 +170,23 @@ static t_bool	valid(int argc, char *argv[], t_stack *stack)
 	return (TRUE);
 }
 
+void sort_small(t_stack *a, t_stack *b)
+{
+	int	min;
+	int	max;
+
+	min = *(int *)ft_lstmin_int(a->head);
+  max = *(int *)ft_lstmax_int(a->head);
+  while (!is_lstsorted_int(a->head))
+	{
+		if (*(int *)a->head->content == max
+			&& *(int *)a->head->next->content == min)
+			ra(a, b);
+		// else
+		// 	sa(a, b);
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	a;
@@ -129,20 +194,29 @@ int	main(int argc, char *argv[])
 
 	a = (t_stack) {NULL, 0};
 	b = (t_stack) {NULL, 0};
-	
+
 	if (!valid(argc - 1, &argv[1], &a))
 		error(NULL);
-	
+
 	// ft_lstiter(a.head, print);
 	// printf("\na size: %d\n\n", a.size);
 	// ft_lstiter(b.head, print);
 	// printf("\nb size: %d\n\n", b.size);
 
-	rra(&a, &b);
-	
-	// ft_lstiter(a.head, print);
+  if (!is_lstsorted_int(a.head))
+  {
+    if (a.size <= 3)
+      sort_small(&a, &b);
+  }
+  else
+    ft_putendl("sorted");
+
+
+  // ft_lstiter(a.head, print);
 	// printf("\na size: %d\n\n", a.size);
 	// ft_lstiter(b.head, print);
 	// printf("\nb size: %d\n\n", b.size);
-	return (0);
+
+  ft_lstclear(&a.head, free);
+  return (0);
 }
