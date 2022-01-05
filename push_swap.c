@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/05 21:33:23 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/05 22:03:44 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,10 +152,7 @@ static t_bool	valid(int argc, char *argv[], t_stack *stack)
 	while (argc)
 	{
 		if (!ft_isnumber(argv[argc - 1]))
-    {
-      ft_putendl("here");
 			return (FALSE);
-    }
 		tmp = ft_atol(argv[argc-- - 1]);
 		if (tmp > INT_MAX || tmp < INT_MIN)
 			return (FALSE);
