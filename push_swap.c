@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/05 22:03:44 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/06 15:11:24 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,8 +179,12 @@ void sort_small(t_stack *a, t_stack *b)
 		if (*(int *)a->head->content == max
 			&& *(int *)a->head->next->content == min)
 			ra(a, b);
-		// else
-		// 	sa(a, b);
+		else if ((*(int *)a->head->content == min
+			&& *(int *)a->head->next->content == max)
+			|| (*(int *)a->head->content > *(int *)a->head->next->content))
+			sa(a, b);
+		else
+			rra(a, b);
 	}
 }
 
@@ -205,8 +209,8 @@ int	main(int argc, char *argv[])
     if (a.size <= 3)
       sort_small(&a, &b);
   }
-  else
-    ft_putendl("sorted");
+  // else
+  //   ft_putendl("sorted");
 
 
   // ft_lstiter(a.head, print);
