@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
+/*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:16:34 by msousa            #+#    #+#             */
-/*   Updated: 2021/12/05 17:33:12 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/07 15:07:57 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@
 // TESTING, remove later
 #include <stdio.h>
 void	print(void *content);
-
-// Move to libft
-void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)());
-t_list	*ft_lstat(t_list *list, unsigned int nbr);
+// TESTING, remove later
 
 // t_list	*ft_lstnew(void *content);
 // void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -49,5 +46,10 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a, t_stack *b);
 void	rrb(t_stack *a, t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+
+// Sort
+void	sort_small(t_stack *a, t_stack *b);
+void	sort_medium(t_stack *a, t_stack *b);
+void	sort_large(t_stack *a, t_stack *b);
 
 #endif
