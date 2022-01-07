@@ -6,7 +6,7 @@
 #    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2022/01/06 15:14:51 by msousa           ###   ########.fr        #
+#    Updated: 2022/01/06 15:19:15 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,9 +77,6 @@ test_3:		${NAME}
 					-ARG="2 1 3"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
 
 test:			test_0 test_1 test_2 test_3
-
-# ARG="4 67 3 87 23"; ./${NAME} $$ARG | wc -l
-# ARG="4 67 3 87 23"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
 
 checker:
 					@echo 'Hello World from $@!'

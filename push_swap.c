@@ -6,122 +6,15 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/06 15:11:24 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/07 14:51:05 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // LIBFT
-long	ft_atol(const char *str)
-{
-	int				sign;
-	long long	number;
 
-	sign = 1;
-	number = 0;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (ft_isdigit(*str))
-	{
-		number = number * 10 + *str++ - '0';
-		if (number < 0)
-		{
-			if (sign < 0)
-				return (0);
-			else
-				return (-1);
-		}
-	}
-	return ((long)(number * sign));
-}
 
-// void	ft_lstiter_if(t_list *list, void (*f)(), void *data, int (*cmp)())
-// {
-// 	t_list	*tmp;
-
-// 	tmp = list;
-// 	while (tmp)
-// 	{
-// 		if (!cmp(tmp->content, data))
-// 			f(list, tmp, data);
-// 		tmp = tmp->next;
-// 	}
-// }
-
-t_list	*ft_lstfind(t_list *list, void *data, int (*cmp)())
-{
-	while (list)
-	{
-		if (cmp(list->content, data))
-			break ;
-		list = list->next;
-	}
-	return (list);
-}
-
-t_list	*ft_lstat(t_list *list, unsigned int nbr)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i++ < nbr)
-	{
-		if (!list)
-			break ;
-		list = list->next;
-	}
-	return (list);
-}
-
-void *ft_lstmin_int(t_list *list)
-{
-  void *min;
-
-  if (!list)
-    return (NULL);
-  min = list->content;
-  while (list)
-  {
-    if (*(int *)list->content < *(int *)min)
-      min = list->content;
-    list = list->next;
-  }
-  return (min);
-}
-
-void *ft_lstmax_int(t_list *list)
-{
-  void *max;
-
-  if (!list)
-    return (NULL);
-  max = list->content;
-  while (list)
-  {
-    if (*(int *)list->content > *(int *)max)
-      max = list->content;
-    list = list->next;
-  }
-  return (max);
-}
-
-t_bool is_lstsorted_int(t_list *list)
-{
-  if (!list)
-    return (FALSE);
-  while (list->next)
-  {
-    if (*(int *)list->content > *(int *)list->next->content)
-      return (FALSE);
-    list = list->next;
-  }
-  return (TRUE);
-}
 // LIBFT
 
 static void	error(t_list *list)
@@ -174,7 +67,7 @@ void sort_small(t_stack *a, t_stack *b)
 
 	min = *(int *)ft_lstmin_int(a->head);
   max = *(int *)ft_lstmax_int(a->head);
-  while (!is_lstsorted_int(a->head))
+  while (!ft_islstsorted_int(a->head))
 	{
 		if (*(int *)a->head->content == max
 			&& *(int *)a->head->next->content == min)
@@ -187,6 +80,37 @@ void sort_small(t_stack *a, t_stack *b)
 			rra(a, b);
 	}
 }
+
+// void partition_medium(t_stack *a, t_stack *b)
+// {
+// 	int	median_value;
+// 	// int	median_index;
+// 	int	half_length;
+
+// 	median_value = ft_lst_get_median(*a);
+// 	half_length = a->size / 2;
+// 	while (half_length)
+// 	{
+// 		if (*(int *)a->head->content < median_value)
+// 		{
+// 			half_length--;
+// 			pb(a, b);
+// 		}
+// 		else if (is_median_closer_to_top(*a, median_value))
+// 			ra(a, b);
+// 		else
+// 			rra(a, b);
+// 	}
+// }
+
+// void sort_medium(t_stack *a, t_stack *b)
+// {
+// 	partition_medium(a, b);
+// 	sort_small(a, b);
+// 	if (ft_islstsorted_int(b->head))
+// 		sb(a, b);
+// 	// merge_b_into_a_ordering(a, b);
+// }
 
 int	main(int argc, char *argv[])
 {
@@ -204,11 +128,16 @@ int	main(int argc, char *argv[])
 	// ft_lstiter(b.head, print);
 	// printf("\nb size: %d\n\n", b.size);
 
-  if (!is_lstsorted_int(a.head))
+  if (!ft_islstsorted_int(a.head))
   {
-    if (a.size <= 3)
+    if (a.size < 4)
       sort_small(&a, &b);
-  }
+		else if (a.size < 6)
+			;
+			// sort_medium(&a, &b);
+		// else
+		// 	sort_large(&a, &b);
+	}
   // else
   //   ft_putendl("sorted");
 
