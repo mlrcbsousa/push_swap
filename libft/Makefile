@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
+#    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/12 22:41:56 by msousa            #+#    #+#              #
-#    Updated: 2022/01/07 14:49:01 by msousa           ###   ########.fr        #
+#    Updated: 2022/01/26 19:01:37 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS		= ft_atoi.c ft_isalpha.c ft_isprint.c ft_memchr.c ft_memmove.c \
 					ft_ullen_base.c ft_ultoa_base.c ft_strnchr.c ft_printf_formatters.c \
 					ft_printf.c ft_strcmp.c ft_streq.c ft_pow.c ft_fabs.c ft_atof.c \
 					ft_isfloat.c ft_isnumber.c ft_putendl.c ft_atol.c ft_lstfind.c \
-					ft_lstat.c ft_lstmin_int.c ft_lstmax_int.c ft_islstsorted_int.c
+					ft_lstat.c ft_lstmin_int.c ft_lstmax_int.c ft_islstsorted_int.c \
+					ft_lstsort.c
 
 OBJS		= ${SRCS:.c=.o}
 
