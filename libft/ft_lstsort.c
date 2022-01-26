@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 23:04:37 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/26 18:59:12 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/26 20:19:34 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 // Uses QuickSort algorithm.
 
-static void	swap(t_list* a, t_list* b)
+static void	swap(t_list *a, t_list *b)
 {
-	void*	tmp;
+	void	*tmp;
 
 	tmp = a->content;
 	a->content = b->content;
 	b->content = tmp;
 }
 
-static int	partition(t_list* list, int start, int end)
+static int	partition(t_list *list, int start, int end)
 {
-	t_list*	pivot;
-	t_list*	current;
-	int	pivot_index;
-	int	i;
+	t_list	*pivot;
+	t_list	*current;
+	int		pivot_index;
+	int		i;
 
 	i = start;
 	pivot_index = start;
@@ -44,10 +44,10 @@ static int	partition(t_list* list, int start, int end)
 		i++;
 	}
 	swap(ft_lstat(list, pivot_index), pivot);
-	return pivot_index;
+	return (pivot_index);
 }
 
-void	ft_lstsort(t_list* list, int start, int end)
+void	ft_lstsort(t_list *list, int start, int end)
 {
 	int	index;
 
