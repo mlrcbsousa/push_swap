@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/05 15:40:55 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/26 10:29:49 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//	Stack#push is same as Array#shift
 void	stack_push(t_stack *stack, void *content)
 {
 	t_list	*head;

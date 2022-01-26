@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
+#    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2022/01/07 18:22:01 by msousa           ###   ########.fr        #
+#    Updated: 2022/01/20 21:49:09 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,8 @@ test_3:		${NAME}
 					-ARG="1 2 3"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
 					-ARG="2 1 3"; ./${NAME} $$ARG | wc -l
 					-ARG="2 1 3"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
+
+# 1 5 2 4 3
 
 test:			test_2 test_3
 
