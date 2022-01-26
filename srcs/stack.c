@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/26 10:29:49 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/26 19:55:30 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,22 @@ void	*stack_unshift(t_stack *stack)
 	stack->size--;
 	free(last);
 	return (content);
+}
+
+int	stack_median(t_stack *stack)
+{
+	t_list		*dup;
+	t_list		*tmp;
+	int		middle;
+	int		median;
+
+	dup = ft_lstdup(stack->head);
+	middle = stack->size / 2;
+	ft_lstsort(dup, 0, stack->size - 1);
+	tmp = dup;
+	while (middle--)
+		tmp = tmp->next;
+	median = *(int *)tmp->content;
+	ft_lstclear(&dup, free);
+	return (median);
 }
