@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 15:06:15 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/26 19:46:30 by msousa           ###   ########.fr       */
+/*   Updated: 2022/01/28 00:21:52 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void partition_medium(t_stack *a, t_stack *b)
 	int	middle;
 
 	median_value = stack_median(a);
+	print(&median_value);
+	printf("Got Here");
 	middle = a->size / 2;
 	while (middle)
 	{
