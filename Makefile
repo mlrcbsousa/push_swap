@@ -6,7 +6,7 @@
 #    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2022/01/20 21:49:09 by msousa           ###   ########.fr        #
+#    Updated: 2022/02/02 23:03:18 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,9 +76,11 @@ test_3:		${NAME}
 					-ARG="2 1 3"; ./${NAME} $$ARG | wc -l
 					-ARG="2 1 3"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
 
-# 1 5 2 4 3
+test_4:		${NAME}
+					-./${NAME} 1 5 2 4 3
 
-test:			test_2 test_3
+test:			test_4			
+# test_2 test_3
 
 checker:
 					@echo 'Hello World from $@!'

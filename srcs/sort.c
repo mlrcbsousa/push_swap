@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 15:06:15 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/28 00:21:52 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/02 23:31:55 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,25 @@ void partition_medium(t_stack *a, t_stack *b)
 {
 	int	median_value;
 	// int	median_index;
-	int	middle;
+	// int	middle;
 
+	(void)b;
 	median_value = stack_median(a);
 	print(&median_value);
 	printf("Got Here");
-	middle = a->size / 2;
-	while (middle)
-	{
-		if (*(int *)a->head->content < median_value)
-		{
-			middle--;
-			pb(a, b);
-		}
-		// else if (is_median_closer_to_top(*a, median_value))
-		// 	ra(a, b);
-		else
-			rra(a, b);
-	}
+	// middle = a->size / 2;
+	// while (middle)
+	// {
+	// 	if (*(int *)a->head->content < median_value)
+	// 	{
+	// 		middle--;
+	// 		pb(a, b);
+	// 	}
+	// 	// else if (is_median_closer_to_top(*a, median_value))
+	// 	// 	ra(a, b);
+	// 	else
+	// 		rra(a, b);
+	// }
 }
 
 void print(void *content)
@@ -69,10 +70,19 @@ void print(void *content)
 
 void sort_medium(t_stack *a, t_stack *b)
 {
-	partition_medium(a, b);
-	sort_small(a, b);
-	if (ft_islstsorted_int(b->head))
-		sb(a, b);
+	int	median_value;
+	// int	median_index;
+	// int	middle;
+
+	(void)b;
+	median_value = stack_median(a);
+	printf("%d", median_value);
+	printf("Got Here");
+
+	// partition_medium(a, b);
+	// sort_small(a, b);
+	// if (ft_islstsorted_int(b->head))
+	// 	sb(a, b);
 	// merge_b_into_a_ordering(a, b);
 }
 
