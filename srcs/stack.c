@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
+/*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/26 19:55:30 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/08 18:08:06 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	stack_median(t_stack *stack)
 	int		middle;
 	int		median;
 
-	dup = ft_lstdup(stack->head);
+	dup = ft_lstdup_int(stack->head);
 	middle = stack->size / 2;
 	ft_lstsort(dup, 0, stack->size - 1);
 	tmp = dup;

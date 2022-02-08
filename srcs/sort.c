@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
+/*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 15:06:15 by msousa            #+#    #+#             */
-/*   Updated: 2022/02/02 23:31:55 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/07 14:53:56 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void sort_medium(t_stack *a, t_stack *b)
 
 	(void)b;
 	median_value = stack_median(a);
-	printf("%d", median_value);
-	printf("Got Here");
+	printf("%d\n", median_value);
+	printf("Got Here\n");
 
 	// partition_medium(a, b);
 	// sort_small(a, b);
