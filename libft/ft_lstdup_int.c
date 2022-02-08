@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 20:14:52 by msousa            #+#    #+#             */
-/*   Updated: 2022/02/08 18:11:48 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/08 21:16:21 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstdup_int(t_list *list)
 {
 	t_list	*new;
 	t_list	*tmp;
-	int	*content;
+	int		*content;
 
 	new = 0;
 	while (list)
