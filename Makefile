@@ -6,7 +6,7 @@
 #    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2022/02/09 20:35:36 by msousa           ###   ########.fr        #
+#    Updated: 2022/02/09 20:57:56 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,6 @@ SRC			= push_swap.c srcs/stack.c srcs/operations_0.c srcs/operations_1.c \
 
 NAME		= push_swap
 
-ifeq (${UNAME}, Linux)
-CHECKER	= checker_linux
-endif
-ifeq (${UNAME}, Darwin)
-CHECKER	= checker_Mac
-endif
-
 ${NAME}:	${OBJ}
 					${MAKE} -C libft
 					${CC} ${CFLAGS} ${OBJ} ${LINKS} -o $@
@@ -40,10 +33,6 @@ all:			${NAME}
 
 style:
 					-norminette $$( find . -type f \( -name "*.c" -or -name "*.h" \) )
-
-leak:
-					valgrind --tool=memcheck --leak-check=yes --show-reachable=yes \
-					--num-callers=20 --track-fds=yes ./${NAME}
 
 test:			${NAME}
 					-./tests.sh
