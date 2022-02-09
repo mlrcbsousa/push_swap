@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 15:06:15 by msousa            #+#    #+#             */
-/*   Updated: 2022/02/09 20:19:16 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/09 20:27:48 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,35 @@ static void	partition_medium(t_stack *a, t_stack *b)
 		else
 			ra(a, b);
 	}
+}
+
+static void	transform_stack_contents_to_index(t_stack *stack)
+{
+	int		i;
+	t_list	*list;
+	t_list	*sorted;
+	t_list	*sorted_tmp;
+
+	sorted = ft_lstdup_int(stack->head);
+	ft_lstsort(sorted, 0, stack->size - 1);
+	list = stack->head;
+	while (list)
+	{
+		sorted_tmp = sorted;
+		i = 0;
+		while (i < stack->size)
+		{
+			if (*(int *)list->content == *(int *)sorted_tmp->content)
+			{
+				*(int *)list->content = i;
+				break ;
+			}
+			sorted_tmp = sorted_tmp->next;
+			i++;
+		}
+		list = list->next;
+	}
+	ft_lstclear(&sorted, free);
 }
 
 void	sort_small(t_stack *a, t_stack *b)
@@ -60,35 +89,6 @@ void	sort_medium(t_stack *a, t_stack *b)
 		sb(a, b);
 	while (b->size)
 		pa(a, b);
-}
-
-static void	transform_stack_contents_to_index(t_stack *stack)
-{
-	int		i;
-	t_list	*list;
-	t_list	*sorted;
-	t_list	*sorted_tmp;
-
-	sorted = ft_lstdup_int(stack->head);
-	ft_lstsort(sorted, 0, stack->size - 1);
-	list = stack->head;
-	while (list)
-	{
-		sorted_tmp = sorted;
-		i = 0;
-		while (i < stack->size)
-		{
-			if (*(int *)list->content == *(int *)sorted_tmp->content)
-			{
-				*(int *)list->content = i;
-				break ;
-			}
-			sorted_tmp = sorted_tmp->next;
-			i++;
-		}
-		list = list->next;
-	}
-	ft_lstclear(&sorted, free);
 }
 
 void	sort_large(t_stack *a, t_stack *b)

@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:39:45 by msousa            #+#    #+#             */
-/*   Updated: 2022/01/05 18:25:50 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/09 20:26:02 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ void	reverse_rotate(t_stack *stack)
 void	pa(t_stack *a, t_stack *b)
 {
 	if (b->size)
-  {
-    ft_putendl("pa");
-    stack_push(a, stack_pop(b));
-  }
+	{
+		ft_putendl("pa");
+		stack_push(a, stack_pop(b));
+	}
 }
 
 void	pb(t_stack *a, t_stack *b)
 {
-  if (a->size)
-  {
-    ft_putendl("pb");
-    stack_push(b, stack_pop(a));
-  }
+	if (a->size)
+	{
+		ft_putendl("pb");
+		stack_push(b, stack_pop(a));
+	}
 }
