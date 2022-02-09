@@ -6,7 +6,7 @@
 #    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2022/02/09 18:45:41 by msousa           ###   ########.fr        #
+#    Updated: 2022/02/09 20:22:36 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ INC			= -Iincludes -Ilibft
 UNAME 	:= ${shell uname}
 OBJ			= ${SRC:.c=.o}
 SRC			= push_swap.c srcs/stack.c srcs/operations_0.c srcs/operations_1.c \
-					srcs/operations_2.c srcs/sort.c
+					srcs/sort.c
 
 NAME		= push_swap
 
@@ -37,8 +37,6 @@ ${NAME}:	${OBJ}
 					${CC} ${CFLAGS} ${INC} -c $< -o $@
 
 all:			${NAME}
-
-bonus:		all
 
 style:
 					-norminette $$( find . -type f \( -name "*.c" -or -name "*.h" \) )

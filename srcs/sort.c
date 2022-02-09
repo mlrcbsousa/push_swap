@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 15:06:15 by msousa            #+#    #+#             */
-/*   Updated: 2022/02/09 20:04:46 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/09 20:19:16 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	sort_medium(t_stack *a, t_stack *b)
 		pa(a, b);
 }
 
-void	transform_stack_contents_to_index(t_stack *stack)
+static void	transform_stack_contents_to_index(t_stack *stack)
 {
 	int		i;
 	t_list	*list;
