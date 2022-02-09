@@ -6,7 +6,7 @@
 #    By: msousa <msousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/29 15:00:20 by msousa            #+#    #+#              #
-#    Updated: 2022/02/09 20:24:39 by msousa           ###   ########.fr        #
+#    Updated: 2022/02/09 20:35:36 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,41 +45,8 @@ leak:
 					valgrind --tool=memcheck --leak-check=yes --show-reachable=yes \
 					--num-callers=20 --track-fds=yes ./${NAME}
 
-test_0:		${NAME}
-					-./${NAME} 1 2 3 4
-					-./${NAME} 1 2 3 hh
-					-./${NAME} 1 2 3 2147483648
-					-./${NAME} 1 2 3 -2147483649
-					-./${NAME} 1 2 3 3
-
-test_1:		${NAME}
-					-ARG="1 2 3 2147483648"; ./${NAME} $$ARG | wc -l
-					-ARG="1 2 3 2147483648"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
-					-ARG="1 2 3 hh"; ./${NAME} $$ARG | wc -l
-					-ARG="1 2 3 hh"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
-
-test_2:		${NAME}
-					-./${NAME} 1 2 3
-					-./${NAME} 1 2
-					-./${NAME} 2 1
-					-./${NAME} 1 3 2
-					-./${NAME} 2 1 3
-					-./${NAME} 2 3 1
-					-./${NAME} 3 2 1
-					-./${NAME} 3 1 2
-
-test_3:		${NAME}
-					-ARG="1 2 3"; ./${NAME} $$ARG | wc -l
-					-ARG="1 2 3"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
-					-ARG="2 1 3"; ./${NAME} $$ARG | wc -l
-					-ARG="2 1 3"; ./${NAME} $$ARG | ./${CHECKER} $$ARG
-
-test_4:		${NAME}
-					-./${NAME} 1 5 2 4 3
-
 test:			${NAME}
-					-./${NAME} 87 -487 781 -100 101 0 1
-# test_0 test_1 test_2 test_3 test_4
+					-./tests.sh
 
 clean:
 					${MAKE} clean -C libft
