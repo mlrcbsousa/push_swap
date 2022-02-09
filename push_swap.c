@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:09:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/02/07 15:21:23 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/09 20:12:27 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_bool	is_equal(void *content, void *data)
 static t_bool	valid(int argc, char *argv[], t_stack *stack)
 {
 	long	tmp;
-	int	*content;
+	int		*content;
 
 	if (!argc)
 		return (FALSE);
@@ -55,19 +55,19 @@ int	main(int argc, char *argv[])
 	t_stack	a;
 	t_stack	b;
 
-	a = (t_stack) {NULL, 0};
-	b = (t_stack) {NULL, 0};
+	a = (t_stack){NULL, 0};
+	b = (t_stack){NULL, 0};
 	if (!valid(argc - 1, &argv[1], &a))
 		error(NULL);
-  if (!ft_islstsorted_int(a.head))
-  {
-    if (a.size < 4)
-      sort_small(&a, &b);
+	if (!ft_islstsorted_int(a.head))
+	{
+		if (a.size < 4)
+			sort_small(&a, &b);
 		else if (a.size < 6)
 			sort_medium(&a, &b);
 		else
 			sort_large(&a, &b);
 	}
-  ft_lstclear(&a.head, free);
-  return (0);
+	ft_lstclear(&a.head, free);
+	return (0);
 }

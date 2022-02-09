@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:14:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/02/08 18:08:06 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/09 19:57:45 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	*stack_unshift(t_stack *stack)
 
 int	stack_median(t_stack *stack)
 {
-	t_list		*dup;
-	t_list		*tmp;
+	t_list	*dup;
+	t_list	*tmp;
 	int		middle;
 	int		median;
 
