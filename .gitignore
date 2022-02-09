@@ -53,3 +53,4 @@ dkms.conf
 push_swap
 Evaluation.pdf
 checker
+push_swap_run_args.log
