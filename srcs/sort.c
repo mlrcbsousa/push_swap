@@ -6,7 +6,7 @@
 /*   By: msousa <msousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 15:06:15 by msousa            #+#    #+#             */
-/*   Updated: 2022/02/07 14:53:56 by msousa           ###   ########.fr       */
+/*   Updated: 2022/02/09 16:19:53 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,31 +33,6 @@ void sort_small(t_stack *a, t_stack *b)
 	}
 }
 
-void partition_medium(t_stack *a, t_stack *b)
-{
-	int	median_value;
-	// int	median_index;
-	// int	middle;
-
-	(void)b;
-	median_value = stack_median(a);
-	print(&median_value);
-	printf("Got Here");
-	// middle = a->size / 2;
-	// while (middle)
-	// {
-	// 	if (*(int *)a->head->content < median_value)
-	// 	{
-	// 		middle--;
-	// 		pb(a, b);
-	// 	}
-	// 	// else if (is_median_closer_to_top(*a, median_value))
-	// 	// 	ra(a, b);
-	// 	else
-	// 		rra(a, b);
-	// }
-}
-
 void print(void *content)
 {
 	printf("%d, ", *(int *)content);
@@ -68,22 +43,36 @@ void print(void *content)
 // ft_lstiter(b.head, print);
 // printf("\nb size: %d\n\n", b.size);
 
+void partition_medium(t_stack *a, t_stack *b)
+{
+	int	median;
+	int	middle;
+
+	median = stack_median(a);
+	middle = a->size / 2;
+	while (middle)
+	{
+		if (*(int *)a->head->content < median)
+		{
+			middle--;
+			pb(a, b);
+		}
+		else
+			ra(a, b);
+	}
+}
+
 void sort_medium(t_stack *a, t_stack *b)
 {
-	int	median_value;
-	// int	median_index;
-	// int	middle;
+	int b_size;
 
-	(void)b;
-	median_value = stack_median(a);
-	printf("%d\n", median_value);
-	printf("Got Here\n");
-
-	// partition_medium(a, b);
-	// sort_small(a, b);
-	// if (ft_islstsorted_int(b->head))
-	// 	sb(a, b);
-	// merge_b_into_a_ordering(a, b);
+	partition_medium(a, b);
+	sort_small(a, b);
+	if (ft_islstsorted_int(b->head))
+		sb(a, b);
+	b_size = b->size;
+	while (b_size--)
+		pa(a, b);
 }
 
 void sort_large(t_stack *a, t_stack *b)
